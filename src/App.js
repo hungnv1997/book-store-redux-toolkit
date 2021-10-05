@@ -1,12 +1,32 @@
 import "./App.css";
-import Books from "./components/Books";
-import Input from "./components/Input";
 
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Categories from "./pages/Categories";
 function App() {
   return (
     <div className="App">
-      <Input />
-      <Books />
+      <Router>
+        <div>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/categories">Category</Link>
+            </li>
+          </ul>
+          <hr />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/categories">
+              <Categories />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }

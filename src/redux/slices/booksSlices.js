@@ -5,16 +5,19 @@ let initialState = [
     id: 1,
     name: "Book 1",
     description: "Note that the development build is not optimized",
+    category: "Math",
   },
   {
     id: 2,
     name: "Book 2",
     description: "Note that the development build is not optimized",
+    category: "Chemistry",
   },
   {
     id: 3,
     name: "Book 3",
     description: "Note that the development build is not optimized",
+    category: "history",
   },
 ];
 
@@ -40,13 +43,8 @@ export const booksSlice = createSlice({
       // console.log("payloaddddd________________________", payload);
     },
     editBook: (state, { payload }) => {
-      console.log("dispatching edit book", payload);
-
       return state.map((book) => {
         if (book.id === payload.id) {
-          // book.name = payload.name;
-          // book.description = payload.description;
-          // console.log("edittttttttttttttttttttttttttttt");
           return {
             id: payload.id,
             name: payload.name,
@@ -54,8 +52,6 @@ export const booksSlice = createSlice({
           };
         } else return book;
       });
-
-      // edit
     },
   },
 });

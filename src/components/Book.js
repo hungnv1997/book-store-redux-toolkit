@@ -7,6 +7,7 @@ function Book(props) {
   const [onEdit, setOnEdit] = useState(false);
   const [newNameBook, setNewNameBook] = useState("");
   const [newDesBook, setNewDesBook] = useState("");
+  const [newCategory, setNewCategory] = useState("");
   //props
   const book = props.book;
   const index = book.id;
@@ -23,7 +24,12 @@ function Book(props) {
     if (newNameBook !== "" && newDesBook !== "") {
       //dispatch edit book
       dispatch(
-        editBook({ id: index, name: newNameBook, description: newDesBook })
+        editBook({
+          id: index,
+          name: newNameBook,
+          description: newDesBook,
+          category: newCategory,
+        })
       );
       //setOnEdit(false)
       setOnEdit(false);
@@ -40,6 +46,9 @@ function Book(props) {
     setNewDesBook(event.target.value);
     console.log(event.target.value);
   };
+  const handleSelect = (event) => {
+    setNewCategory(event.target.value);
+  };
   //_____________________RETURN___________________
   return (
     <div className="row col-4 m-5">
@@ -53,7 +62,8 @@ function Book(props) {
             Delete
           </button>
         </h1>
-        <h2>{book.description}</h2>
+        <h2>Category: {book.category}</h2>
+        <h2 className="text-muted">{book.description}</h2>
 
         <button className="btn btn-primary" onClick={handleEditBook}>
           Edit
@@ -83,9 +93,9 @@ function Book(props) {
                 onChangeNameBook(e);
               }}
             />
-            <label for="floatingInput">Change book name</label>
+            <label for="floatingInput">Change name</label>
           </div>
-          <div className="form-floating">
+          <div className="form-floating mt-3">
             <input
               type="text"
               className="form-control"
@@ -95,9 +105,19 @@ function Book(props) {
                 onChangeDesBook(e);
               }}
             />
-            <label for="floatingInput">Change Book Description</label>
+            <label for="floatingInput">Change description</label>
           </div>
-          <button className="btn btn-success" onClick={handleSubmitEdit}>
+          <select
+            className="form-select mt-3"
+            aria-label="Default select example"
+            onChange={(e) => handleSelect(e)}
+          >
+            <option selected></option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Math">Math</option>
+            <option value="History">History</option>
+          </select>
+          <button className="btn btn-success mt-3" onClick={handleSubmitEdit}>
             {" "}
             Submit
           </button>
