@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/book-store-redux-toolkit/static/css/main.d87cbb72.chunk.css",
+    "main.js": "/book-store-redux-toolkit/static/js/main.bdf3785f.chunk.js",
+    "main.js.map": "/book-store-redux-toolkit/static/js/main.bdf3785f.chunk.js.map",
+    "runtime-main.js": "/book-store-redux-toolkit/static/js/runtime-main.273ddef4.js",
+    "runtime-main.js.map": "/book-store-redux-toolkit/static/js/runtime-main.273ddef4.js.map",
+    "static/css/2.c1256375.chunk.css": "/book-store-redux-toolkit/static/css/2.c1256375.chunk.css",
+    "static/js/2.9a6b304c.chunk.js": "/book-store-redux-toolkit/static/js/2.9a6b304c.chunk.js",
+    "static/js/2.9a6b304c.chunk.js.map": "/book-store-redux-toolkit/static/js/2.9a6b304c.chunk.js.map",
+    "index.html": "/book-store-redux-toolkit/index.html",
+    "static/css/2.c1256375.chunk.css.map": "/book-store-redux-toolkit/static/css/2.c1256375.chunk.css.map",
+    "static/css/main.d87cbb72.chunk.css.map": "/book-store-redux-toolkit/static/css/main.d87cbb72.chunk.css.map",
+    "static/js/2.9a6b304c.chunk.js.LICENSE.txt": "/book-store-redux-toolkit/static/js/2.9a6b304c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.273ddef4.js",
+    "static/css/2.c1256375.chunk.css",
+    "static/js/2.9a6b304c.chunk.js",
+    "static/css/main.d87cbb72.chunk.css",
+    "static/js/main.bdf3785f.chunk.js"
+  ]
+}
