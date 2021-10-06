@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Categories from "./pages/Categories";
+import NoMatch from "./pages/NoMatch";
 function App() {
   return (
     <div className="App">
@@ -13,7 +14,7 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/categories">Category</Link>
+              <Link to="/categories">Categories</Link>
             </li>
           </ul>
           <hr />
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route path="/categories">
               <Categories />
+            </Route>
+            <Route path="*">
+              <NoMatch />
             </Route>
           </Switch>
         </div>

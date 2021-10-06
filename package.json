@@ -2,6 +2,7 @@
   "name": "crud-books",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://hungnv1997.github.io/book-store-redux-toolkit",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^5.14.1",
@@ -20,12 +21,11 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "homepage": "https://hungnv1997.github.io/book-store-redux-toolkit"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

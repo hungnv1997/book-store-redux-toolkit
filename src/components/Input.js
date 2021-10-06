@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { addBook } from "../redux/slices/booksSlices";
+import { addBook } from "../redux/slices/booksSlice";
 
 function Input() {
   //state

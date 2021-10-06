@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { removeBook, editBook } from "../redux/slices/booksSlices";
+import { removeBook, editBook } from "../redux/slices/booksSlice";
 
 function Book(props) {
   //state
