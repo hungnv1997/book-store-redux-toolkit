@@ -7,7 +7,7 @@ function Books() {
 
   return (
     <div className="container-fluid">
-      <div className="row">
+      <div className="row d-flex align-item-center justify-content-center">
         {books.books.map((book) => {
           return <Book book={book} key={book.id} />;
         })}

@@ -49,6 +49,7 @@ export const booksSlice = createSlice({
             id: payload.id,
             name: payload.name,
             description: payload.description,
+            category: payload.category,
           };
         } else return book;
       });

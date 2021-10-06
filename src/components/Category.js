@@ -17,25 +17,33 @@ function Category(props) {
     setOnEdit(!onEdit);
   };
   return (
-    <div className="container mt-3">
-      <a href="#" className="row m-3">
-        <div className="col-12 p-3 bg-dark text-white d-flex flex-row">
-          <div>{props.category.name}</div>
-          <button
-            className="btn btn-primary ml-5 align-self-end"
-            onClick={handleClickEditCate}
-          >
-            edit
-          </button>
-          <button
-            className="btn btn-danger align-self-end"
-            onClick={handleDeleteBtn}
-          >
-            X
-          </button>
+    <div className="col-4 m-2">
+      <div className="">
+        <div className="card">
+          <div className="card-body">
+            <h6 className="card-title">Category</h6>
+            <h5 className="card-subtitle my-3">
+              {props.category.name.toUpperCase()}
+            </h5>
+          </div>
+          <div className="card-footer">
+            <button
+              className="btn btn-primary btn-sm m-2 align-self-end"
+              onClick={handleClickEditCate}
+            >
+              Edit
+            </button>
+            <button
+              className="btn btn-danger btn-sm align-self-end"
+              onClick={handleDeleteBtn}
+            >
+              Delete
+            </button>
+          </div>
         </div>
-      </a>
-      <div className="row">
+      </div>
+
+      <div className=" card m-2">
         {onEdit && (
           <EditCategory
             id={props.category.id}

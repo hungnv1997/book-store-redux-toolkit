@@ -4,19 +4,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Categories from "./pages/Categories";
 import NoMatch from "./pages/NoMatch";
+import Nav from "./components/Nav";
 function App() {
   return (
     <div className="App">
       <Router>
         <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/categories">Categories</Link>
-            </li>
-          </ul>
+          <Nav />
           <hr />
           <Switch>
             <Route exact path="/">

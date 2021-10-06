@@ -8,14 +8,15 @@ function InputCategory() {
   //dispatch
   const dispatch = useDispatch();
   //handle event
-  const handleSubmitBtn = () => {
+  const handleSubmitBtn = (event) => {
+    event.preventDefault();
     //get value of state: id , name
     const id = uuidv4();
     const name = inputCategory;
     //dispatch to categories slices
     if (name !== "") {
-      alert("Adding category!");
       dispatch(addCategory({ id: id, name: name }));
+      alert("add category");
     } else {
       alert("please insert value");
     }
@@ -27,22 +28,24 @@ function InputCategory() {
     setInputCategory(e.target.value);
   };
   return (
-    <div className="row">
-      <div className="form-floating mb-3">
-        <input
-          type="text"
-          className="form-control mt-3"
-          id="floatingPassword"
-          placeholder="New Category"
-          onChange={(e) => {
-            onChangeCategory(e);
-          }}
-        />
-        <label for="floatingPassword">New Category</label>
-      </div>
-      <button onClick={handleSubmitBtn} className="btn btn-primary w-100">
-        Add new Category
-      </button>
+    <div className="row col-12">
+      <form className="p-0">
+        <div className="form-floating mb-3 w-100 ">
+          <input
+            type="text"
+            className="form-control mt-3"
+            id="floatingPassword"
+            placeholder="New Category"
+            onChange={(e) => {
+              onChangeCategory(e);
+            }}
+          />
+          <label for="floatingPassword">New Category</label>
+        </div>
+        <button onClick={handleSubmitBtn} className="btn btn-primary w-100">
+          Add new Category
+        </button>
+      </form>
     </div>
   );
 }

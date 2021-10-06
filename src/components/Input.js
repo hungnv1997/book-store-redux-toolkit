@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { addBook } from "../redux/slices/booksSlice";
+import OptionsCategory from "./OptionsCategory";
 
 function Input() {
+  //useSelector
+  const categories = useSelector((state) => state.categories);
   //state
   let [nameInput, setNameInput] = useState("");
   let [desInput, setDesInput] = useState("");
@@ -51,7 +54,7 @@ function Input() {
   return (
     <div>
       <div className="container">
-        <div className="row mb-5">
+        <div className="row col-12 mb-5">
           <form>
             <h1 className="h3 mb-3 fw-normal">Add new book</h1>
 
@@ -87,9 +90,12 @@ function Input() {
               onChange={(e) => handleSelect(e)}
             >
               <option selected></option>
-              <option value="Chemistry">Chemistry</option>
-              <option value="Math">Math</option>
-              <option value="History">History</option>
+              {categories &&
+                categories.map((category) => {
+                  return (
+                    <OptionsCategory category={category} key={category.id} />
+                  );
+                })}
             </select>
             {/* button */}
             <button

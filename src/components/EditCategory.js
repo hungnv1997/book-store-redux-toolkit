@@ -33,25 +33,29 @@ function EditCategory(props) {
     }
   };
   return (
-    <div>
-      <div className="form-floating mt-3">
-        <input
-          type="text"
-          className="form-control"
-          id="floatingInput"
-          placeholder="Name"
-          onChange={(e) => {
-            onChangeInput(e);
-          }}
-        />
-        <label for="floatingInput">Change category</label>
-        <button className="btn btn-danger" onClick={handleClickClose}>
-          X
+    <div className="form-floating m-3  ">
+      <input
+        type="text"
+        className="form-control"
+        id="floatingInput"
+        placeholder="Name"
+        onChange={(e) => {
+          onChangeInput(e);
+        }}
+      />
+      <label for="floatingInput">Change category</label>
+      <div className="d-flex justify-content-between mt-3">
+        <button
+          button
+          className="btn btn-danger btn-sm"
+          onClick={handleClickClose}
+        >
+          Back
+        </button>
+        <button className="btn btn-success btn-sm" onClick={handleClickApply}>
+          Apply
         </button>
       </div>
-      <button className="btn btn-success" onClick={handleClickApply}>
-        APPLY
-      </button>
     </div>
   );
 }

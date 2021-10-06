@@ -4,10 +4,10 @@ import Category from "./Category";
 
 function CategoriesC() {
   const categories = useSelector((state) => state.categories);
-  console.log("--------------->", categories);
+  // console.log("--------------->", categories);
   return (
     <div className="container-fluid">
-      <div className="row">
+      <div className="row d-flex justify-content-center align-item-center">
         {categories.map((category) => {
           return <Category category={category} key={category.id} />;
         })}

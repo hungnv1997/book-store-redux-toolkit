@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeBook, editBook } from "../redux/slices/booksSlice";
+import Category from "./Category";
+import OptionsCategory from "./OptionsCategory";
 
 function Book(props) {
+  //useSelector
+  const categories = useSelector((state) => state.categories);
+  console.log("------------------->", categories);
   //state
   const [onEdit, setOnEdit] = useState(false);
   const [newNameBook, setNewNameBook] = useState("");
@@ -51,80 +56,93 @@ function Book(props) {
   };
   //_____________________RETURN___________________
   return (
-    <div className="row col-4 m-5">
-      <div className="">
-        <h1>
-          <span className="m-2">{book.name}</span>
-          <button
-            className="btn btn-danger ml-3"
-            onClick={() => dispatch(removeBook({ id: index }))}
-          >
-            Delete
-          </button>
-        </h1>
-        <h2>Category: {book.category}</h2>
-        <h2 className="text-muted">{book.description}</h2>
-
-        <button className="btn btn-primary" onClick={handleEditBook}>
-          Edit
-        </button>
-      </div>
-      {onEdit ? (
-        <div className="edit-overlay">
-          <h1>
-            Edit book {book.name}{" "}
+    <div className=" col-md-3 m-2">
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title mb-3 d-flex justify-content-between align-item-center">
+            <span className="">{book.name}</span>
             <button
-              className="btn btn-danger"
-              onClick={() => {
-                setOnEdit(false);
-                console.log("click editbook", onEdit);
-              }}
+              className="btn btn-danger btn-sm ml-3"
+              onClick={() => dispatch(removeBook({ id: index }))}
             >
-              X
+              Delete
             </button>
-          </h1>
-          <div className="form-floating">
-            <input
-              type="text"
-              className="form-control"
-              id="floatingInput"
-              placeholder="Name"
-              onChange={(e) => {
-                onChangeNameBook(e);
-              }}
-            />
-            <label for="floatingInput">Change name</label>
+          </h5>
+          <h6 className="card-subtitle text-start">
+            Category: {book.category}
+          </h6>
+          <h6 className="card-text text-start mt-3 text-muted">
+            {book.description}
+          </h6>
+          <div className="card-footer">
+            <button className="btn btn-primary w-100" onClick={handleEditBook}>
+              Edit
+            </button>
           </div>
-          <div className="form-floating mt-3">
-            <input
-              type="text"
-              className="form-control"
-              id="floatingInput"
-              placeholder="Name"
-              onChange={(e) => {
-                onChangeDesBook(e);
-              }}
-            />
-            <label for="floatingInput">Change description</label>
-          </div>
-          <select
-            className="form-select mt-3"
-            aria-label="Default select example"
-            onChange={(e) => handleSelect(e)}
-          >
-            <option selected></option>
-            <option value="Chemistry">Chemistry</option>
-            <option value="Math">Math</option>
-            <option value="History">History</option>
-          </select>
-          <button className="btn btn-success mt-3" onClick={handleSubmitEdit}>
-            {" "}
-            Submit
-          </button>
         </div>
-      ) : (
-        ""
-      )}
+      </div>
+      {/* edit */}
+      <div className="card mt-2">
+        {onEdit ? (
+          <div className="edit-overlay m-2">
+            <div className="d-flex justify-content-between my-2">
+              <h5>Edit: {book.name} </h5>
+              <button
+                className="btn btn-danger btn-sm"
+                onClick={() => {
+                  setOnEdit(false);
+                  console.log("click editbook", onEdit);
+                }}
+              >
+                X
+              </button>
+            </div>
+            <div className="form-floating">
+              <input
+                type="text"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Name"
+                onChange={(e) => {
+                  onChangeNameBook(e);
+                }}
+              />
+              <label for="floatingInput">Change name</label>
+            </div>
+            <div className="form-floating mt-3">
+              <input
+                type="text"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Name"
+                onChange={(e) => {
+                  onChangeDesBook(e);
+                }}
+              />
+              <label for="floatingInput">Change description</label>
+            </div>
+            <select
+              className="form-select mt-3"
+              aria-label="Default select example"
+              onChange={(e) => handleSelect(e)}
+            >
+              <option selected></option>
+              {categories &&
+                categories.map((category) => {
+                  return (
+                    <OptionsCategory category={category} key={category.id} />
+                  );
+                })}
+            </select>
+            <button className="btn btn-success mt-3" onClick={handleSubmitEdit}>
+              {" "}
+              Submit
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }
