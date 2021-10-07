@@ -9,7 +9,7 @@ function Review(props) {
   //props
   const review = props.review;
   const dispatch = useDispatch();
-  //   console.log("review Props_____________", review);
+
   //   handle click delete
   const handleClickDelete = (e) => {
     e.preventDefault();

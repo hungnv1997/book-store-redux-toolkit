@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Review from "./Review";
 
-function ReviewsC() {
+function Reviews() {
   const reviews = useSelector((state) => state.reviews);
   console.log("reviews", reviews);
   return (
@@ -16,4 +16,4 @@ function ReviewsC() {
   );
 }
 
-export default ReviewsC;
+export default Reviews;

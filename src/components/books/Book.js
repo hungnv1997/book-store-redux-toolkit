@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeBook, editBook } from "../redux/slices/booksSlice";
-import Category from "./Category";
+import { removeBook, editBook } from "../../redux/slices/booksSlice";
+
 import OptionsCategory from "./OptionsCategory";
 
 function Book(props) {
@@ -57,14 +57,14 @@ function Book(props) {
   //_____________________RETURN___________________
   return (
     <div className=" col-md-3 m-2">
-      <div className="card">
-        <div className="card-header bg-white p-3 mb-3 d-flex justify-content-between mb-3 align-item-center">
+      <div className="card p-3">
+        <div className="card-header bg-white mb-3 d-flex justify-content-between mb-3 align-item-center">
           <h5 className="align-self-center">{book.name}</h5>
 
           <div class="btn-group">
             <button
               type="button"
-              class="btn btn-outline-secondary btn-sm dropdown-toggle border-0"
+              class="btn btn-outline-secondary dropdown-toggle border-0"
               data-bs-toggle="dropdown"
               aria-expanded="false"
               style={{ height: "35px " }}
@@ -74,9 +74,6 @@ function Book(props) {
                 <button
                   class="dropdown-item"
                   type="button"
-                  //   onClick={(e) => {
-                  //     handleClickDelete(e);
-                  //   }}
                   onClick={() => dispatch(removeBook({ id: index }))}
                 >
                   Delete

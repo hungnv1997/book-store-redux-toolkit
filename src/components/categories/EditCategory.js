@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { editCategory } from "../redux/slices/categoriesSlice";
+import { editCategory } from "../../redux/slices/categoriesSlice";
 
 function EditCategory(props) {
   //props

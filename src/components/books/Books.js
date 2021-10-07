@@ -3,12 +3,12 @@ import Book from "./Book.js";
 import { useSelector } from "react-redux";
 
 function Books() {
-  const books = useSelector((state) => state);
+  const books = useSelector((state) => state.books);
 
   return (
     <div className="container-fluid">
       <div className="row d-flex align-item-center justify-content-center">
-        {books.books.map((book) => {
+        {books.map((book) => {
           return <Book book={book} key={book.id} />;
         })}
       </div>

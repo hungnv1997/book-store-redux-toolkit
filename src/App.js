@@ -1,11 +1,13 @@
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import Categories from "./pages/Categories";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import Reviews from "./pages/Reviews";
+
+import Nav from "./components/nav/Nav";
+
+import HomePage from "./pages/HomePage";
+import CategoriesPage from "./pages/CategoriesPage";
+import ReviewsPage from "./pages/ReviewsPage";
+import NoMatchPage from "./pages/NoMatchPage";
 function App() {
   return (
     <div className="App">
@@ -15,16 +17,16 @@ function App() {
           <hr />
           <Switch>
             <Route exact path="/">
-              <Home />
+              <HomePage />
             </Route>
             <Route path="/categories">
-              <Categories />
+              <CategoriesPage />
             </Route>
             <Route path="/reviews">
-              <Reviews />
+              <ReviewsPage />
             </Route>
             <Route path="*">
-              <NoMatch />
+              <NoMatchPage />
             </Route>
           </Switch>
         </div>

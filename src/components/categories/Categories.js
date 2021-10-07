@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import Category from "./Category";
 
-function CategoriesC() {
+function Categories() {
   const categories = useSelector((state) => state.categories);
   // console.log("--------------->", categories);
   return (
@@ -16,4 +17,4 @@ function CategoriesC() {
   );
 }
 
-export default CategoriesC;
+export default Categories;

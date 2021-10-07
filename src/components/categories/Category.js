@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteCategory } from "../redux/slices/categoriesSlice";
+import { deleteCategory } from "../../redux/slices/categoriesSlice";
 import EditCategory from "./EditCategory";
-// import { useSelector } from "react-redux";
 
 function Category(props) {
   //state

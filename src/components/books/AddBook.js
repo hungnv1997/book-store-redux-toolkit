@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { addBook } from "../redux/slices/booksSlice";
+import { addBook } from "../../redux/slices/booksSlice";
 import OptionsCategory from "./OptionsCategory";
 
-function Input() {
+function AddBook() {
   //useSelector
   const categories = useSelector((state) => state.categories);
   //state
@@ -33,12 +33,6 @@ function Input() {
     console.log("_____________________________________");
   };
 
-  const handleClickAddButton = () => {
-    const name = nameInput;
-    console.log("text", name);
-    // addTodo(text,id)
-    // setUserInput('')
-  };
   const handleSelect = (e) => {
     console.log("select", e.target.value);
     setCateInput(e.target.value);
@@ -114,4 +108,4 @@ function Input() {
   );
 }
 
-export default Input;
+export default AddBook;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addReview } from "../../redux/slices/reviewsSlice";
 import { v4 as uuidv4 } from "uuid";
-function InputReview() {
+function AddReview() {
   //dispatch
   const dispatch = useDispatch();
   // state
@@ -77,4 +77,4 @@ function InputReview() {
   );
 }
 
-export default InputReview;
+export default AddReview;
