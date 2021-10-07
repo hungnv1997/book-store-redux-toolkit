@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Categories from "./pages/Categories";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Reviews from "./pages/Reviews";
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,9 @@ function App() {
             </Route>
             <Route path="/categories">
               <Categories />
+            </Route>
+            <Route path="/reviews">
+              <Reviews />
             </Route>
             <Route path="*">
               <NoMatch />

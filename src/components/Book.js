@@ -58,37 +58,65 @@ function Book(props) {
   return (
     <div className=" col-md-3 m-2">
       <div className="card">
-        <div className="card-body">
-          <h5 className="card-title mb-3 d-flex justify-content-between align-item-center">
-            <span className="">{book.name}</span>
+        <div className="card-header bg-white p-3 mb-3 d-flex justify-content-between mb-3 align-item-center">
+          <h5 className="align-self-center">{book.name}</h5>
+
+          <div class="btn-group">
             <button
-              className="btn btn-danger btn-sm ml-3"
-              onClick={() => dispatch(removeBook({ id: index }))}
-            >
-              Delete
-            </button>
-          </h5>
+              type="button"
+              class="btn btn-outline-secondary btn-sm dropdown-toggle border-0"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style={{ height: "35px " }}
+            ></button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <button
+                  class="dropdown-item"
+                  type="button"
+                  //   onClick={(e) => {
+                  //     handleClickDelete(e);
+                  //   }}
+                  onClick={() => dispatch(removeBook({ id: index }))}
+                >
+                  Delete
+                </button>
+              </li>
+              <li>
+                <button
+                  class="dropdown-item"
+                  type="button"
+                  onClick={handleEditBook}
+                >
+                  Edit
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="card-body">
           <h6 className="card-subtitle text-start">
             Category: {book.category}
           </h6>
           <h6 className="card-text text-start mt-3 text-muted">
             {book.description}
           </h6>
-          <div className="card-footer">
-            <button className="btn btn-primary w-100" onClick={handleEditBook}>
-              Edit
-            </button>
-          </div>
         </div>
+        {/* <div className="card-footer bg-white">
+          <button className="btn btn-primary w-100" onClick={handleEditBook}>
+            Edit
+          </button>
+        </div> */}
       </div>
       {/* edit */}
-      <div className="card mt-2">
-        {onEdit ? (
+      {/* <div className="card mt-2"> */}
+      {onEdit ? (
+        <div className="card mt-2">
           <div className="edit-overlay m-2">
             <div className="d-flex justify-content-between my-2">
               <h5>Edit: {book.name} </h5>
               <button
-                className="btn btn-danger btn-sm"
+                className="btn btn-outline-dark btn-sm"
                 onClick={() => {
                   setOnEdit(false);
                   console.log("click editbook", onEdit);
@@ -126,7 +154,7 @@ function Book(props) {
               aria-label="Default select example"
               onChange={(e) => handleSelect(e)}
             >
-              <option selected></option>
+              <option selected>Choose category</option>
               {categories &&
                 categories.map((category) => {
                   return (
@@ -134,15 +162,19 @@ function Book(props) {
                   );
                 })}
             </select>
-            <button className="btn btn-success mt-3" onClick={handleSubmitEdit}>
+            <button
+              className="btn btn-success w-100 mt-3"
+              onClick={handleSubmitEdit}
+            >
               {" "}
               Submit
             </button>
           </div>
-        ) : (
-          ""
-        )}
-      </div>
+        </div>
+      ) : (
+        ""
+      )}
+      {/* </div> */}
     </div>
   );
 }

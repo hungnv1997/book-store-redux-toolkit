@@ -29,6 +29,13 @@ function Nav() {
               >
                 Categories
               </Link>
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to="/reviews"
+              >
+                Reviews
+              </Link>
             </div>
           </div>
         </div>
